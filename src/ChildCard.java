@@ -1,6 +1,11 @@
 public class ChildCard {
 
-    public ChildCard(){
+    private int age;
+    private double weight;
+    private double height;
+
+    public ChildCard(int age, double height, double weight){
+
 
     }
 }
