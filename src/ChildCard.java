@@ -3,6 +3,7 @@ import java.util.List;
 
 public class ChildCard {
 
+    private String name;
     private int age;
     private double weight;
     private double height;
@@ -10,7 +11,8 @@ public class ChildCard {
     private Map map;
     private HashMap<Ride, Integer> entrances;
 
-    public ChildCard(Guardian guardian, int age, double height, double weight){
+    public ChildCard(Guardian guardian, String name, int age, double height, double weight){
+        this.name = name;
         this.guardian = guardian;
         this.age = age;
         this.height = height;
@@ -50,5 +52,10 @@ public class ChildCard {
         }
         else
             return false;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
 }
