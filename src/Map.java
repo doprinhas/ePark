@@ -3,19 +3,26 @@ import java.util.LinkedList;
 
 public class Map {
 
-    HashMap<Guardian,ChildCard> visitors;
     HashMap<ChildCard,Location> locationsOfTheChildren;
 
     public Map()
     {
-        visitors = new HashMap<>();
         locationsOfTheChildren = new HashMap<>();
     }
 
-    public void addVisitor(Guardian g,ChildCard c)
+    public void changeLocation(ChildCard c,Location l)
     {
-        visitors.put(g,c);
+        locationsOfTheChildren.put(c,l);
     }
 
+    public Location getLocation(ChildCard c)
+    {
+        return locationsOfTheChildren.get(c);
+    }
+
+    public Location getChildren(Location l)
+    {
+        return locationsOfTheChildren.get(c);
+    }
 
 }
