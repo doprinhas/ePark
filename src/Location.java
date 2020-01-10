@@ -8,8 +8,7 @@ public class Location {
 
     public Location()
     {
-        this.x_location = 0;
-        this.y_location = 0;
+        choseLocation();
     }
 
     public Location(int x_location, int y_location)
@@ -35,6 +34,12 @@ public class Location {
     }
 
     private void changeLocation()
+    {
+        x_location = (int)(Math.random()*100)+1;
+        y_location = (int)(Math.random()*100)+1;
+    }
+
+    public void choseLocation()
     {
         x_location = (int)(Math.random()*100)+1;
         y_location = (int)(Math.random()*100)+1;

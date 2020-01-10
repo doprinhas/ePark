@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -8,11 +9,13 @@ public class ChildCard {
     private double weight;
     private double height;
     private Guardian guardian;
-    private Map map;
+    private Location location;
     private int ID;
     private HashMap<Ride, Integer> entrances;
 
     private static int ID_COUNTER = 0;
+
+
 
     public ChildCard(Guardian guardian, String name, int age){
         this.name = name;
@@ -21,6 +24,7 @@ public class ChildCard {
         this.entrances = new HashMap<>();
         ID_COUNTER++;
         this.ID = ID_COUNTER;
+        this.location = new Location();
     }
 
     public void updateHeightAndWeight(double height, double weight)
@@ -29,13 +33,18 @@ public class ChildCard {
         this.weight = weight;
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
     public int getID() {
         return ID;
     }
 
-    public void setMap(Map map) {
-        this.map = map;
-    }
 
     public int getAge() {
         return age;
@@ -61,10 +70,25 @@ public class ChildCard {
     public boolean enterRide(Ride ride){
         if (entrances.containsKey(ride) && entrances.get(ride) > 0) {
             entrances.put(ride, entrances.get(ride) - 1);
+
             return true;
         }
         else
             return false;
+    }
+
+
+    public void updateChildCard(String name,int age, double weight,double height,Guardian guardian, int ID,HashMap<Ride, Integer> entrances)
+    {
+        this.name = name;
+        this.age =age;
+        this.weight = weight;
+        this.height = height;
+        this.guardian = guardian;
+        this.ID= ID;
+        this.entrances = new HashMap<>();
+        this.entrances.putAll(entrances);
+        this.location = new Location();
     }
 
     @Override

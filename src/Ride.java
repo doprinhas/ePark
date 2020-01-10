@@ -5,12 +5,15 @@ public class Ride {
     private HeightRestriction heightRestriction;
     private AgeRestriction ageRestriction;
     private String RideName;
+    private Location location;
 
     public Ride(String rideName,int weightRestriction, int heightRestriction, int ageRestriction) {
         this.RideName = rideName;
         this.weightRestriction = new WeightRestriction(weightRestriction);
         this.heightRestriction = new HeightRestriction(heightRestriction);
         this.ageRestriction = new AgeRestriction(ageRestriction);
+        this.location = new Location();
+        this.location.choseLocation();
     }
 
     public WeightRestriction getWeightRestriction() {

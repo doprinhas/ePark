@@ -24,4 +24,14 @@ public class Guardian {
         if(card != null)
             this.creditCards.add(card);
     }
+
+    public void updateGuardian(ChildCard childCard,CreditCard creditCard, Map map)
+    {
+        this.map = map;
+        this.childList = new ArrayList<>();
+        this.creditCards = new ArrayList<>();
+        this.childList.add(childCard);
+        this.creditCards.add(creditCard);
+    }
+
 }

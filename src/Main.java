@@ -6,12 +6,13 @@ public class Main {
 
     private static List<Object> systemObjects;
     private static ArrayList<Guardian> guardians = new ArrayList<>();
-
+    public static Map map;
 
     public static void main(String [ ] args)
     {
         systemObjects = new ArrayList<>();
         ArrayList<Guardian> guardians = new ArrayList<>();
+        map = new Map();
         Ride[] rides = {new Ride("Mamba Ride",0,140,12),
                         new Ride("Giant Wheel",0,0,0),
                         new Ride("Carrousel", 0,0,8)};
@@ -126,6 +127,7 @@ public class Main {
         guardians.add(g1);
         ChildCard childCard = new ChildCard(g1,childName,childAge);
         addToSystem(childCard);
+        m1.changeLocation(childCard,childCard.getLocation());
         System.out.println("**New electronic bracelet for child ID: " +childCard.getID() +"**");
 
         int childHeight = 0;

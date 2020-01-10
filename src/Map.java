@@ -19,6 +19,7 @@ public class Map {
         return locationsOfTheChildren.get(c);
     }
 
+
     public void displayLocation(ChildCard c)
     {
         System.out.println(c.toString() + ": " + locationsOfTheChildren.get(c).toString());
