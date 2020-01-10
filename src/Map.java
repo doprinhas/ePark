@@ -1,5 +1,4 @@
-import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Map {
 
@@ -20,9 +19,18 @@ public class Map {
         return locationsOfTheChildren.get(c);
     }
 
-    public Location getChildren(Location l)
+    public void displayLocation(ChildCard c)
     {
-        return locationsOfTheChildren.get(c);
+        System.out.println(c.toString() + ": " + locationsOfTheChildren.get(c).toString());
+    }
+
+    public void displayMap()
+    {
+        System.out.println("ePark Map: ");
+        for (ChildCard c : locationsOfTheChildren.keySet())
+        {
+            displayLocation(c);
+        }
     }
 
 }

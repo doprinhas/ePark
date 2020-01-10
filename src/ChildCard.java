@@ -9,15 +9,28 @@ public class ChildCard {
     private double height;
     private Guardian guardian;
     private Map map;
+    private int ID;
     private HashMap<Ride, Integer> entrances;
 
-    public ChildCard(Guardian guardian, String name, int age, double height, double weight){
+    private static int ID_COUNTER = 0;
+
+    public ChildCard(Guardian guardian, String name, int age){
         this.name = name;
         this.guardian = guardian;
         this.age = age;
+        this.entrances = new HashMap<>();
+        ID_COUNTER++;
+        this.ID = ID_COUNTER;
+    }
+
+    public void updateHeightAndWeight(double height, double weight)
+    {
         this.height = height;
         this.weight = weight;
-        this.entrances = new HashMap<>();
+    }
+
+    public int getID() {
+        return ID;
     }
 
     public void setMap(Map map) {
