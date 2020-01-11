@@ -67,10 +67,18 @@ public class ChildCard {
         }
     }
 
-    public boolean enterRide(Ride ride){
+    public void enterRide(Ride ride){
+        this.location = ride.getLocation();
+    }
+
+    public boolean exitTheRide(Ride ride)
+    {
+        if (ride.isBroken())
+        {
+            System.out.println("This ride is broken: " +ride.getRideName());
+        }
         if (entrances.containsKey(ride) && entrances.get(ride) > 0) {
             entrances.put(ride, entrances.get(ride) - 1);
-
             return true;
         }
         else

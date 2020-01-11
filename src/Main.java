@@ -117,7 +117,7 @@ public class Main {
 
         //UC -1 : 8-12
         //<editor-fold> des="register and update all information
-        CreditCard cc1 = new CreditCard(creditNumber,creditYear,creditMonth,creditSafetyDigits);
+        CreditCard cc1 = new CreditCard(creditNumber,creditYear,creditMonth,creditSafetyDigits, maxAmount);
         addToSystem(cc1);
         Map m1 = new Map();
         addToSystem(m1);
