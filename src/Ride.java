@@ -1,12 +1,13 @@
 public class Ride {
 
-
     private WeightRestriction weightRestriction;
     private HeightRestriction heightRestriction;
     private AgeRestriction ageRestriction;
     private String RideName;
     private Location location;
     private boolean isBroken;
+    private boolean isExtreme;
+    private int cost;
 
     public boolean isBroken() {
         return isBroken;
@@ -16,14 +17,24 @@ public class Ride {
         isBroken = broken;
     }
 
-    public Ride(String rideName, int weightRestriction, int heightRestriction, int ageRestriction) {
+    public Ride(String rideName, int weightRestriction, int heightRestriction, int ageRestriction, int cost, boolean isExtreme) {
         this.RideName = rideName;
+        this.isExtreme = isExtreme;
+        this.cost = cost;
         this.weightRestriction = new WeightRestriction(weightRestriction);
         this.heightRestriction = new HeightRestriction(heightRestriction);
         this.ageRestriction = new AgeRestriction(ageRestriction);
         this.location = new Location();
         this.location.choseLocation();
         isBroken = false;
+    }
+
+    public boolean isExtreme() {
+        return isExtreme;
+    }
+
+    public int getCost() {
+        return cost;
     }
 
     public WeightRestriction getWeightRestriction() {
@@ -48,9 +59,12 @@ public class Ride {
 
     @Override
     public String toString() {
-        String s = "Ride: " + RideName + " Need to be on top of " + weightRestriction.getMaxWeight() + " Weight, And on top of "
-                +heightRestriction.getMinHeight() + " Height, And on top of " + ageRestriction.getMinAge() + " Age";
+        String s = "Ride: " + RideName;
         return s;
+    }
+
+    public String showRestriction(){
+        return "" + ageRestriction + heightRestriction + weightRestriction;
     }
 
     public void setWeightRestriction(int weightRestriction) {
@@ -71,5 +85,10 @@ public class Ride {
 
     public void setAgeRestriction(int ageRestriction) {
         this.ageRestriction = new AgeRestriction(ageRestriction);
+    }
+
+    public boolean isAllowed (ChildCard child){
+        return weightRestriction.isAllowed(child) && heightRestriction.isAllowed(child)
+                && ageRestriction.isAllowed(child);
     }
 }

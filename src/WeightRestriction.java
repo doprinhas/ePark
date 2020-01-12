@@ -18,4 +18,16 @@ public class WeightRestriction extends Restriction {
     public void setMaxWeight(int maxWeight) {
         this.maxWeight = maxWeight;
     }
+
+    @Override
+    public boolean isAllowed(ChildCard child) {
+        if (child.getWeight() <= maxWeight)
+            return true;
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Weight Restriction: " + maxWeight + "\n";
+    }
 }

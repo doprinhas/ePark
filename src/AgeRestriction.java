@@ -18,4 +18,16 @@ public class AgeRestriction extends Restriction {
     public void setMinAge(int minAge) {
         this.minAge = minAge;
     }
+
+    @Override
+    public boolean isAllowed(ChildCard child) {
+        if (child.getAge() >= minAge)
+            return true;
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Age Restriction: " + minAge + "\n";
+    }
 }

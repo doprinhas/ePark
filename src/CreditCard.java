@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class CreditCard {
 
     int creditCardNumber;
@@ -7,7 +9,7 @@ public class CreditCard {
     int maxAmount;
     int balance;
 
-    public CreditCard(int creditCardNumber, int expirationYear, int expirationMonth, String safetyDigits, int balance) {
+    public CreditCard(int creditCardNumber, int expirationYear, int expirationMonth, String safetyDigits, int maxAmount) {
         this.creditCardNumber = creditCardNumber;
         this.expirationYear = expirationYear;
         this.expirationMonth = expirationMonth;
@@ -33,4 +35,22 @@ public class CreditCard {
         return this.balance;
     }
 
+    public boolean addToBalance(int amount){
+        if (amount + balance > maxAmount)
+            return false;
+        balance += amount;
+        return true;
+    }
+
+    public boolean refund (int amount){
+        if (balance - amount < 0)
+            return false;
+        balance -= amount;
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Credit Number: " + creditCardNumber + "\nBalance:" + balance + "\nMax Amount: " + maxAmount;
+    }
 }
