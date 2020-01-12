@@ -36,8 +36,10 @@ public class CreditCard {
     }
 
     public boolean addToBalance(int amount){
-        if (amount + balance > maxAmount)
+        if (amount + balance > maxAmount) {
+            System.out.println("Parches Wasn't Committed - Max Amount Exceeded!");
             return false;
+        }
         balance += amount;
         return true;
     }
